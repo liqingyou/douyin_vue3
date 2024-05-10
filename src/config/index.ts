@@ -1,5 +1,6 @@
 export default {
-  baseUrl: 'https://dy.ttentau.top/imgs/',
+  // baseUrl: 'https://dy.ttentau.top/imgs/',
+  baseUrl: 'https://m3test.2loveyou.com/dy/',
   imgPath: '/imgs/',
   filePreview: 'http://192.168.0.103/static/uploads/'
 }
