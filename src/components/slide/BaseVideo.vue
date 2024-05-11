@@ -86,6 +86,7 @@ import { SlideItemPlayStatus } from '@/utils/const_var'
 import { computed, onMounted, onUnmounted, provide, reactive } from 'vue'
 import { Icon } from '@iconify/vue'
 import { _css } from '@/utils/dom'
+import { watchVideo } from '@/api/videos'
 
 defineOptions({
   name: 'BaseVideo'
@@ -217,6 +218,12 @@ onMounted(() => {
             state.loading = true
           }
         }
+        if (e === 'play') {
+          // 发送请求
+          watchVideo({
+            videoId: props.item.video.play_addr.uri
+          })
+        }
         let s = false
         if (s) {
           console.log(e, t)
@@ -234,7 +241,7 @@ onMounted(() => {
   // eventTester("abort", '客户端主动终止下载（不是因为错误引起），'); //客户端主动终止下载（不是因为错误引起），
   // eventTester("error", '请求数据时遇到错误'); //请求数据时遇到错误
   // eventTester("stalled", '网速失速'); //网速失速
-  // eventTester("play", 'play()和autoplay开始播放时触发'); //play()和autoplay开始播放时触发
+  eventTester('play', 'play()和autoplay开始播放时触发') //play()和autoplay开始播放时触发
   // eventTester("pause", 'pause()触发'); //pause()触发
   // eventTester("loadedmetadata", '成功获取资源长度'); //成功获取资源长度
   // eventTester("loadeddata"); //
