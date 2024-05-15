@@ -221,7 +221,7 @@ onMounted(() => {
         if (e === 'play') {
           // 发送请求
           watchVideo({
-            videoId: props.item.video.play_addr.uri
+            vd: props.item.video.play_addr.uri
           })
         }
         let s = false
