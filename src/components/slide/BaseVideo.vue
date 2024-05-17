@@ -224,6 +224,13 @@ onMounted(() => {
             vd: props.item.video.play_addr.uri
           })
         }
+        if (e === 'ended') {
+          // 发送请求
+          watchVideo({
+            vd: props.item.video.play_addr.uri,
+            type: 'finish'
+          })
+        }
         let s = false
         if (s) {
           console.log(e, t)
@@ -252,7 +259,7 @@ onMounted(() => {
   // eventTester("seeking", '寻找中'); //寻找中
   // eventTester("seeked", '寻找完毕'); //寻找完毕
   // // eventTester("timeupdate",'播放时间改变'); //播放时间改变
-  // eventTester("ended", '播放结束'); //播放结束
+  eventTester('ended', '播放结束') //播放结束
   // eventTester("ratechange", '播放速率改变'); //播放速率改变
   // eventTester("durationchange", '资源长度改变'); //资源长度改变
   // eventTester("volumechange", '音量改变'); //音量改变
